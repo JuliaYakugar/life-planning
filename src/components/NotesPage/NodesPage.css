@@ -1,0 +1,24 @@
+.nodes {
+    columns: 6;
+}
+
+.nodes .node {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    padding: 40px 16px 16px;
+    /* background-color: #d5ebf0; */
+    border-radius: 20px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.nodes .node button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 30px;
+    color: #fff;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
