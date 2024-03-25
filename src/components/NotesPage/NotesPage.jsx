@@ -9,7 +9,7 @@ export default function NodesPage() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newNode, setNewNode] = useState({ text: "", category: '' });
-    const [selectedCategory, setSelectedCategory] = useState(''); // Состояние для выбранной области
+    const [selectedCategory, setSelectedCategory] = useState('');
 
     const categories = {
         'Рецепты': '#ffdbdb',
@@ -24,8 +24,8 @@ export default function NodesPage() {
     const handleAddNode = () => {
         const newId = nodes.length > 0 ? nodes[nodes.length - 1].id + 1 : 1;
         dispatch(addNode({ id: newId, ...newNode }));
-        setNewNode({  text: "", category: '' }); // Очищаем поля после добавления задачи
-        setIsModalOpen(false); // Закрываем модальное окно
+        setNewNode({  text: "", category: '' });
+        setIsModalOpen(false);
     };
 
     const handleCategoryChange = (event) => {

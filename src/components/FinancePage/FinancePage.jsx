@@ -10,7 +10,7 @@ export default function FinancePage() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newFin, setNewFin] = useState({ name: "", status: null, money: "", date: "" });
-    const [selectedStatus, setSelectedStatus] = useState(''); // Состояние для выбранной области
+    const [selectedStatus, setSelectedStatus] = useState('');
 
     const status = {
         false : '#ffdbdb',
@@ -25,10 +25,9 @@ export default function FinancePage() {
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const day = date.getDate();
-        const month = date.getMonth() + 1; // Прибавляем 1, так как месяцы в JavaScript начинаются с 0
+        const month = date.getMonth() + 1;
         const year = date.getFullYear();
     
-        // Добавляем ведущий ноль, если день или месяц состоят из одной цифры
         const formattedDay = day < 10 ? `0${day}` : day;
         const formattedMonth = month < 10 ? `0${month}` : month;
     
@@ -47,8 +46,8 @@ export default function FinancePage() {
     const handleAddFin = () => {
         const newId = finance.length > 0 ? finance[finance.length - 1].id + 1 : 1;
         dispatch(addFin({ id: newId, ...newFin }));
-        setNewFin({ name: "", status: null, money: '', date: "" }); // Очищаем поля после добавления задачи
-        setIsModalOpen(false); // Закрываем модальное окно
+        setNewFin({ name: "", status: null, money: '', date: "" });
+        setIsModalOpen(false);
     };
 
     const handleStatusChange = (event) => {

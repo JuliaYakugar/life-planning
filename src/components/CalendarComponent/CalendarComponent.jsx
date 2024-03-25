@@ -3,7 +3,6 @@ import './CalendarComponent.css';
 
 export default function CalendarComponent({data}) {
 
-    // Создаем массив дней недели
     const daysOfWeek = [
         'Понедельник',
         'Вторник',
@@ -13,23 +12,18 @@ export default function CalendarComponent({data}) {
         'Суббота',
         'Воскресенье'
     ];
-    // Получаем текущую дату
+
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const currentMonth = currentDate.getMonth();
 
-    // Определяем, с какого дня недели начинается месяц
     const startingDay = new Date(currentYear, currentMonth, 1).getDay() - 1;
-    
-    // Создаем массив для дней месяца
     const daysOfMonth = [];
 
-    // Добавляем дни предыдущего месяца для заполнения первой недели
     for (let i = 0; i < startingDay; i++) {
         daysOfMonth.push('');
     }
 
-    // Добавляем дни текущего месяца
     let i = 1;
     while (true) {
         const date = new Date(currentYear, currentMonth, i);
@@ -42,12 +36,11 @@ export default function CalendarComponent({data}) {
         i++;
     }
 
-    // Разбиваем массив дней месяца на строки (недели)
     const weeks = [];
     while (daysOfMonth.length > 0) {
         weeks.push(daysOfMonth.splice(0, 7));
     }
-    // Добавляем пустые ячейки в конце таблицы для заполнения
+
     if (weeks.some(week => week.some(day => day !== ''))) {
         const remainingDays = 7 - weeks[weeks.length - 1].length;
         for (let i = 0; i < remainingDays; i++) {
@@ -55,7 +48,6 @@ export default function CalendarComponent({data}) {
         }
     }
 
-    // Функция для отображения данных в ячейке календаря
     const renderDataForDate = (date) => {
         if (data[date]) {
             return data[date].map((item) => item);
