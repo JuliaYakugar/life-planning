@@ -1,21 +1,35 @@
-ul {
+header {
+    background-color: #2191AA;
+}
+
+header ul {
     display: flex;
-    gap: 5px;
+    gap: 15px;
     margin: 0;
     padding: 0;
-  }
-  
-  li {
-    list-style-type: none;
-    padding: 7px 10px;
-    background-color: #4dbbac;
-  }
-  
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
+}
 
-  .container {
-    padding: 20px 20px 0;
-  }
+header li {
+    list-style-type: none;
+}
+
+header a {
+    text-decoration: none;
+    padding: 7px 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+header a.active {
+    background-color: #D5EBF0;
+}
+
+header a:active {
+    color: #000;
+}
+
+.container {
+    padding: 20px;
+}

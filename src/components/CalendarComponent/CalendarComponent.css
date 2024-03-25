@@ -1,0 +1,58 @@
+.calendar {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar th {
+    flex: 1;
+    text-align: start;
+    color: #2191AA;
+    font-size: 14px;
+}
+
+.calendar  tbody {
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar tr {
+    display: flex;
+}
+
+.calendar td {
+    border: 1px solid #2191AA;
+    flex: 1;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+}
+
+.calendar .date {
+    margin: 3px;
+    text-align: left;
+    font-size: 12px;
+}
+
+.calendar span {
+    font-size: 12px;
+    line-height: 1.6;
+    border: none;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+.calendar .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calendar .item button {
+    margin-left: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #fff;
+    border-left: 1px solid #fff;
+    margin-left: 5px;
+}

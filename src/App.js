@@ -1,35 +1,46 @@
-import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
-import PlannerPage from './components/PlannerPage/PlannerPage';
-import ProjectsPage from './components/ProjectsPage/ProjectsPage';
-import KnowledgeBasePage from './components/KnowledgeBasePage/KnowledgeBasePage';
+import { BrowserRouter, NavLink, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './store/store';
+
 import './App.css';
 
+import TasksPage from './components/TasksPage/TasksPage';
+import FinancePage from './components/FinancePage/FinancePage'
+import NotesPage from './components/NotesPage/NotesPage';
+
 function App() {
-  return (
-    <BrowserRouter>
+    
+    return (
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <BrowserRouter>
 
-      <header className='container'>
-        <ul>
-          <li>
-              <Link to="/">Планнер</Link>
-            </li>
-            <li>
-              <Link to="/projects">Проекты</Link>
-            </li>
-            <li>
-              <Link to="/knowledge-base">База знаний</Link>
-            </li>
-        </ul>
-      </header>
+                    <header className='container'>
+                        <ul>
+                            <li>
+                                <NavLink to="/" activeClassName="active">Задачи</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/finance" activeClassName="active">Финансы</NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/notes" activeClassName="active">Заметки</NavLink>
+                            </li>
+                        </ul>
+                    </header>
 
-      <Routes >
-        <Route path="/" element={<PlannerPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/knowledge-base" element={<KnowledgeBasePage />} />
-        <Route path="*" element={<h1>404</h1>} />
-      </Routes>
-    </BrowserRouter>
-  );
+                    <Routes >
+                        <Route path="/" element={<TasksPage />} />
+                        <Route path="/finance" element={<FinancePage />} />
+                        <Route path="/notes" element={<NotesPage />} />
+                        <Route path="*" element={<h1>404</h1>} />
+                    </Routes>
+                    
+                </BrowserRouter>
+            </PersistGate>
+        </Provider>
+    );
 }
 
 export default App;
